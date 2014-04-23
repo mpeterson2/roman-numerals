@@ -29,24 +29,18 @@ RomanNumeral::RomanNumeral() {
 int RomanNumeral::getNum(string rom) {
 	int num = 0;
 
-	for(int i=0; i<rom.length(); i++) {
+	for (int i = 0; i < rom.length(); i++) {
 
 		string val = charToString(rom[i]);
 
-		if(i != rom.length() - 1)
-		{
-			string valPlus1 = charToString(rom[i+1]);
-			if(toNum(val) < toNum(valPlus1))
-			{
+		if (i != rom.length() - 1) {
+			string valPlus1 = charToString(rom[i + 1]);
+			if (toNum(val) < toNum(valPlus1)) {
 				num -= toNum(val);
-			}
-			else
-			{
+			} else {
 				num += toNum(val);
 			}
-		}
-		else
-		{
+		} else {
 			num += toNum(val);
 		}
 	}
@@ -57,14 +51,11 @@ int RomanNumeral::getNum(string rom) {
 string RomanNumeral::getNumeral(int num) {
 	string rom = "";
 
-	while(num > 0)
-	{
-		for(int i=0; i<iVals.size(); i++)
-		{
+	while (num > 0) {
+		for (int i = 0; i < iVals.size(); i++) {
 			string symbol = iVals[i];
 			int val = toNum(symbol);
-			while(val <= num)
-			{
+			while (val <= num) {
 				rom += symbol;
 				num -= val;
 			}
@@ -75,19 +66,19 @@ string RomanNumeral::getNumeral(int num) {
 }
 
 int RomanNumeral::toNum(string rom) {
-	if(rom == "M") return 1000;
-	if(rom == "CM") return 900;
-	if(rom == "D") return 500;
-	if(rom == "CD") return 400;
-	if(rom == "C") return 100;
-	if(rom == "XC") return 90;
-	if(rom == "L") return 50;
-	if(rom == "XL") return 40;
-	if(rom == "X") return 10;
-	if(rom == "IX") return 9;
-	if(rom == "V") return 5;
-	if(rom == "IV") return 4;
-	if(rom == "I") return 1;
+	if (rom == "M") return 1000;
+	if (rom == "CM") return 900;
+	if (rom == "D") return 500;
+	if (rom == "CD") return 400;
+	if (rom == "C") return 100;
+	if (rom == "XC") return 90;
+	if (rom == "L") return 50;
+	if (rom == "XL") return 40;
+	if (rom == "X") return 10;
+	if (rom == "IX") return 9;
+	if (rom == "V") return 5;
+	if (rom == "IV") return 4;
+	if (rom == "I") return 1;
 	return 0;
 }
 
